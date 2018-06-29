@@ -1,18 +1,18 @@
 package main
 
 import (
-    "github.com/labstack/echo"
-    "github.com/labstack/echo/middleware"
-    "./handler"
+	"./handler"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 func main() {
-    e := ehco.New()
+	e := echo.New()
 
-    e.Use(middleware.Logger())
-    e.Use(middleware.Recover())
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
 
-    e.GET("/hello", handler.MainPage())
+	e.GET("/hello", handler.MainPage())
 
-    e.Start(":1323")
+	e.Start(":1323")
 }
